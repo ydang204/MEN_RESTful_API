@@ -4,8 +4,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 
-//import product routes
+//import routes
 const productRoutes = require("./routes/product");
+const authRoutes = require("./routes/auth");
 
 require("dotenv-flow").config();
 
@@ -32,6 +33,7 @@ mongoose.connection.once("open", () => console.log("Connected successfully to mo
 
 // post, put, delete -->crud
 app.use("/api/products", productRoutes);
+app.use("/api/user", authRoutes);
 
 const PORT = process.env.PORT || 4000;
 
