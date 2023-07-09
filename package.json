@@ -20,7 +20,7 @@
   "author": "smsj",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cross-env": "^7.0.3",
     "dotenv-flow": "^3.2.0",
