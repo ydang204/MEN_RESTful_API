@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start-dev": "nodemon server.js",
-    "start": "node ./api/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "vercel dev",
+    "test": "jest -i"
   },
   "keywords": [
     "mongodb",
