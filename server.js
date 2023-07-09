@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
+const { verifyToken } = require("./validation");
 
 //import routes
 const productRoutes = require("./routes/product");
@@ -32,7 +33,7 @@ mongoose.connect
 mongoose.connection.once("open", () => console.log("Connected successfully to mongoDB"));
 
 // post, put, delete -->crud
-app.use("/api/products", productRoutes);
+app.use("/api/products", verifyToken, productRoutes);
 app.use("/api/user", authRoutes);
 
 const PORT = process.env.PORT || 4000;
