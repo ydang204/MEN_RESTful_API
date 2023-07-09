@@ -1,11 +1,12 @@
 const router = require("express").Router();
 const product = require("../models/product");
+const { verifyToken } = require("../validation");
 
 
 //Crud operation
 
 //Create product-post
-router.post("/", (req, res) => {
+router.post("/", verifyToken, (req, res) => {
     data = req.body;
 
     product.insertMany(data)
@@ -57,7 +58,7 @@ router.put("/:id", (req, res) => {
 });
 
 //Delete specific product-delete 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", verifyToken, (req, res) => {
     const id = req.params.id;
 
     product.findByIdAndDelete(id)
